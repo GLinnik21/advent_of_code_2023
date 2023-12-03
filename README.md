@@ -1,58 +1,41 @@
-# Advent of Code Swift Starter Project
+# Advent of Code by [@GLinnik21](https://github.com/GLinnik21)
 
 [![Language](https://img.shields.io/badge/language-Swift-red.svg)](https://swift.org)
 
-Daily programming puzzles at [Advent of Code](<https://adventofcode.com/>), by
-[Eric Wastl](<http://was.tl/>). This is a small example starter project for
-building Advent of Code solutions.
+Solutions for daily programming puzzles at [[Advent of Code 2023](https://adventofcode.com/2023)], by [Eric Wastl](http://was.tl/). This project showcases completed Swift solutions for the challenges.
 
 ## Usage
 
-Swift comes with Xcode, or you can [install it](https://www.swift.org/install/)
-on a supported macOS, Linux, or Windows platform. 
+Swift is available with Xcode, or it can be [installed](https://www.swift.org/install/) on macOS, Linux, or Windows platforms.
 
-If you're using Xcode, you can open this project by choosing File / Open and
-select the parent directory. 
+For Xcode users, open this project via File / Open and select the parent directory. For command line users, run the test suite with `swift test` and execute the solutions with `swift run`.
 
-If you prefer the command line, you can run the test suite with `swift test`,
-and run the output with `swift run`.
-
-If you're using Visual Studio Code to edit, you might find these Swift
-extensions useful:
-
-- [Swift](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang)
-  (provides core language edit / debug / test features)
-- [apple-swift-format](https://marketplace.visualstudio.com/items?itemName=vknabel.vscode-apple-swift-format)
-  (supports the [swift-format](https://github.com/apple/swift-format) package)
+If you're editing with Visual Studio Code, consider these Swift extensions:
+- [Swift](https://marketplace.visualstudio.com/items?itemName=sswg.swift-lang): Provides core language edit/debug/test features.
+- [apple-swift-format](https://marketplace.visualstudio.com/items?itemName=vknabel.vscode-apple-swift-format): Supports the [swift-format](https://github.com/apple/swift-format) package.
 
 ## Challenges
 
-The challenges assume three files (replace 00 with the day of the challenge).
+This project provides ready-to-run solutions for the Advent of Code challenges. Each day's challenge is structured as follows:
+- `Data/Day00.txt`: Input data for the challenge.
+- `Sources/Day00.swift`: Completed solution code.
+- `Tests/Day00.swift`: Unit tests for the challenge.
 
-- `Data/Day00.txt`: the input data provided for the challenge
-- `Sources/Day00.swift`: the code to solve the challenge
-- `Tests/Day00.swift`: any unit tests that you want to include
+To explore a specific day's challenge, navigate to the corresponding files. The `AdventOfCode.swift` file allows for easy execution of any day's solution with `swift run`.
 
-To start a new day's challenge, make a copy of these files and update as
-necessary. The `AdventOfCode.swift` file controls which day's challenge is run
-with `swift run`. By default that runs the most recent challenge in the package.
-
-To supply command line arguments use `swift run AdventOfCode`. For example,
-`swift run -c release AdventOfCode --benchmark 3` builds the binary with full
-optimizations, and benchmarks the challenge for day 3.
+To run a specific challenge with command line arguments, use `swift run AdventOfCode`. For benchmarking, use `swift run -c release AdventOfCode --benchmark [day number]`.
 
 ## Linting and Formatting
 
-Challenge source code can be linted and formatted automatically using the
-included dependency on `swift-format`.
+Source code is maintained with `swift-format` for consistency.
 
-Lint source code with the following command:
+Lint the source code:
 
 ```shell
 $ swift package lint-source-code
 ```
 
-Format source code with the following command:
+Format the source code:
 
 ```shell
 $ swift package format-source-code
@@ -61,14 +44,10 @@ Stated reason: “This command formats the Swift source files”.
 Allow this plugin to write to the package directory? (yes/no)
 ```
 
-To avoid the interactive prompt when formatting source code, use the 
-`--allow-writing-to-package-directory` flag.
- 
+For non-interactive formatting, use `--allow-writing-to-package-directory`:
+
 ```shell
 $ swift package format-source-code --allow-writing-to-package-directory
 ```
 
-swift-format will use the built-in default style to lint and format code. A
-`.swift-format` configuration file can be used to customize the style used, see
-[Configuration](https://github.com/apple/swift-format/blob/main/Documentation/Configuration.md)
-for more details. 
+swift-format uses the built-in default style for linting and formatting. A `.swift-format` configuration file can be used for custom styles, as detailed in [Configuration](https://github.com/apple/swift-format/blob/main/Documentation/Configuration.md).
