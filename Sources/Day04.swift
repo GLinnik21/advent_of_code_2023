@@ -18,4 +18,18 @@ struct Day04: AdventDay {
       sum += 1 << (game.winning.intersection(game.all).count - 1)
     }
   }
+
+  func part2() -> Any {
+    var copies = [Int](repeating: 1, count: entities.count)
+    for (index, game) in entities.enumerated() {
+      let won = game.winning.intersection(game.all).count
+      let rangeStart = index + 1
+      let rangeEnd = min(index + 1 + won, entities.count)
+
+      for card in rangeStart..<rangeEnd {
+        copies[card] += copies[index]
+      }
+    }
+    return copies.reduce(0, +)
+  }
 }
