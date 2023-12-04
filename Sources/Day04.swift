@@ -1,5 +1,3 @@
-import Darwin
-
 struct Day04: AdventDay {
   var data: String
 
@@ -16,10 +14,8 @@ struct Day04: AdventDay {
   }
 
   func part1() -> Any {
-    var sum = 0
-    entities.forEach { game in
-      sum += Int(pow(2.0, Double(game.winning.intersection(game.all).count - 1)))
+    entities.reduce(into: 0) { sum, game in
+      sum += 1 << (game.winning.intersection(game.all).count - 1)
     }
-    return sum
   }
 }
