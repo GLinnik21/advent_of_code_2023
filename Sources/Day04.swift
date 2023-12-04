@@ -23,12 +23,9 @@ struct Day04: AdventDay {
     var copies = [Int](repeating: 1, count: entities.count)
     for (index, game) in entities.enumerated() {
       let won = game.winning.intersection(game.all).count
-      let rangeStart = index + 1
-      let rangeEnd = min(index + 1 + won, entities.count)
+      let range = (index + 1)..<min(index + 1 + won, entities.count)
 
-      for card in rangeStart..<rangeEnd {
-        copies[card] += copies[index]
-      }
+      range.forEach { copies[$0] += copies[index] }
     }
     return copies.reduce(0, +)
   }
