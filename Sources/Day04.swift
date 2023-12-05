@@ -1,8 +1,8 @@
 struct Day04: AdventDay {
-  var data: String
+  var entities: [(winning: Set<Int>, all: Set<Int>)]
 
-  var entities: [(winning: Set<Int>, all: Set<Int>)] {
-    data.split(separator: "\n").compactMap { line in
+  init(data: String) {
+    entities = data.split(separator: "\n").compactMap { line in
       guard let last = line.split(separator: ":").last?.split(separator: "|") else { return nil }
       guard let winningPart = last.first, let numbersPart = last.last else { return nil }
 
