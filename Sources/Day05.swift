@@ -1,3 +1,5 @@
+import Algorithms
+
 struct Day05: AdventDay {
   typealias Map = (source: ClosedRange<Int>, destination: ClosedRange<Int>)
   typealias Stage = [Map]
@@ -37,5 +39,21 @@ struct Day05: AdventDay {
 
   func part1() -> Any {
     seeds.compactMap { map(seed: $0) }.min()!
+  }
+
+  func part2() -> Any {
+    return
+      seeds
+      .chunks(ofCount: 2)
+      .compactMap { pair -> ClosedRange<Int>? in
+        guard let start = pair.first, let distance = pair.last else { return nil }
+        return start...(start + distance - 1)
+      }
+      .flatMap { range in
+        range.map { seed in
+          map(seed: seed)
+        }
+      }
+      .min()!
   }
 }
