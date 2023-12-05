@@ -36,6 +36,6 @@ struct Day05: AdventDay {
   }
 
   func part1() -> Any {
-    seeds.compactMap { map(seed: $0) }.min(by: { $0 < $1 })!
+    seeds.compactMap { map(seed: $0) }.min()!
   }
 }
