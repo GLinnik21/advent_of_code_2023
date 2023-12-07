@@ -3,7 +3,7 @@ struct Day06: AdventDay {
 
   var data: String
 
-  var part1Races: [Race] {
+  private var part1Races: [Race] {
     let lines = data.split(separator: "\n")
     guard lines.count == 2 else { return [] }
 
@@ -13,7 +13,7 @@ struct Day06: AdventDay {
     return zip(times, distances).map { ($0, $1) }
   }
 
-  var part2Race: Race {
+  private var part2Race: Race {
     let lines = data.split(separator: "\n")
     guard lines.count == 2,
       let times = Int(lines[0].filter { $0.isWholeNumber }),
@@ -24,7 +24,7 @@ struct Day06: AdventDay {
     return (times, distances)
   }
 
-  func integerSolutions(distance: Double, time: Double) -> Int {
+  private func integerSolutions(distance: Double, time: Double) -> Int {
     let discriminant = time * time - 4 * distance
     guard discriminant >= 0 else { return 0 }
 
